@@ -13,7 +13,7 @@ Preferred communication style: Simple, everyday language.
 ### Frontend (Expo / React Native)
 
 - **Framework**: Expo SDK 54 with React Native 0.81, using the new architecture (`newArchEnabled: true`)
-- **Routing**: `expo-router` with file-based routing. The app uses a tab-based layout (`app/(tabs)/`) with three main screens: Home (index), Encyclopedia, and History. Additional screens for results and insect detail are presented as modals/stack screens.
+- **Routing**: `expo-router` with file-based routing. The app uses a tab-based layout (`app/(tabs)/`) with four main screens: Home (index), Encyclopedia (insect orders), Library (detailed insect encyclopedia with accordion cards), and History. Additional screens for results and insect detail are presented as modals/stack screens.
 - **State Management**: `@tanstack/react-query` for server state, React's built-in `useState`/`useEffect` for local state
 - **Local Storage**: `@react-native-async-storage/async-storage` for persisting identification history and language preferences on-device
 - **Animations**: `react-native-reanimated` for spring animations and enter/exit transitions throughout the UI

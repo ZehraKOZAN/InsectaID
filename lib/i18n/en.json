@@ -6,6 +6,7 @@
   "tabs": {
     "home": "Home",
     "encyclopedia": "Encyclopedia",
+    "library": "Library",
     "history": "History"
   },
   "home": {
@@ -24,6 +25,15 @@
     "title": "Insect Encyclopedia",
     "subtitle": "Browse through {{count}} major orders of insects",
     "species": "species"
+  },
+  "library": {
+    "title": "Insect Encyclopedia",
+    "subtitle": "Detailed species profiles with scientific data",
+    "physicalDesc": "Physical Description",
+    "distinguishing": "Distinguishing Features",
+    "reproduction": "Reproduction",
+    "biologicalNotes": "Biological Notes",
+    "tapToExpand": "Tap to expand"
   },
   "historyScreen": {
     "title": "Analysis History",
@@ -109,6 +119,36 @@
       "name": "True Bugs",
       "description": "Insects with piercing-sucking mouthparts",
       "examples": ["Stink Bug", "Cicada", "Aphid", "Water Strider"]
+    }
+  },
+  "insects": {
+    "tribolium_castaneum": {
+      "commonName": "Flour Beetle",
+      "physicalDesc": "Adults are shiny dark reddish-brown with a flat body structure, measuring 3.5\u20134.0 mm in length.",
+      "distinguishing": ["The temple projection in front of the compound eye does NOT exceed the eye level.", "Antennae gradually widen toward the tip."],
+      "reproduction": "Females lay 300\u2013400 eggs during their lifetime. 3\u20134 generations per year.",
+      "bioNotes": "Eggs are coated with a sticky material and hidden within food sources, making them difficult to detect during storage inspections."
+    },
+    "tribolium_confusum": {
+      "commonName": "Confused Flour Beetle",
+      "physicalDesc": "Dark reddish-brown with a flat body, measuring 3.5\u20134.0 mm in length.",
+      "distinguishing": ["The temple projection in front of the eye exceeds the eye level.", "Last three antennal segments are noticeably wider than the rest."],
+      "reproduction": "Females lay 300\u2013400 eggs during their lifetime. 3\u20134 generations per year.",
+      "bioNotes": "Often confused with T. castaneum due to similar appearance. Distinguished primarily by the temple projection and antennal structure."
+    },
+    "sitophilus_granarius": {
+      "commonName": "Granary Weevil",
+      "physicalDesc": "Dark brown to black, measuring 3\u20135 mm in length. Has a distinctive snout (rostrum) with strong mandibles.",
+      "distinguishing": ["Small punctures visible on pronotum and elytra.", "Cannot fly due to reduced (vestigial) hind wings."],
+      "reproduction": "Females lay eggs inside wheat kernels and seal the hole with a gelatinous secretion. 150\u2013300 eggs per female. 3\u20134 generations per year depending on storage conditions.",
+      "bioNotes": "One of the most destructive stored grain pests. The inability to fly means infestations typically spread through movement of infested grain."
+    },
+    "sitophilus_oryzae": {
+      "commonName": "Rice Weevil",
+      "physicalDesc": "Reddish-brown to dark brown, measuring 2.5\u20134.0 mm in length. Has a snout similar to other weevils.",
+      "distinguishing": ["Small punctures on pronotum and elytra similar to S. granarius.", "Unlike S. granarius, the Rice Weevil can fly."],
+      "reproduction": "Females bore into grain kernels to deposit eggs. Multiple generations per year under favorable conditions.",
+      "bioNotes": "A major pest of stored rice, wheat, and other cereals worldwide. Flight capability allows it to infest grain in the field before harvest."
     }
   },
   "sampleResults": {

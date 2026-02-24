@@ -6,6 +6,7 @@
   "tabs": {
     "home": "Ana Sayfa",
     "encyclopedia": "Ansiklopedi",
+    "library": "Kutuphane",
     "history": "Gecmis"
   },
   "home": {
@@ -24,6 +25,15 @@
     "title": "Bocek Ansiklopedisi",
     "subtitle": "{{count}} ana bocek takimina goz atin",
     "species": "tur"
+  },
+  "library": {
+    "title": "Bocek Ansiklopedisi",
+    "subtitle": "Bilimsel verilerle detayli tur profilleri",
+    "physicalDesc": "Fiziksel Tanim",
+    "distinguishing": "Ayirt Edici Ozellikler",
+    "reproduction": "Ureme",
+    "biologicalNotes": "Biyolojik Notlar",
+    "tapToExpand": "Genisletmek icin dokunun"
   },
   "historyScreen": {
     "title": "Analiz Gecmisi",
@@ -109,6 +119,36 @@
       "name": "Gercek Bocekler",
       "description": "Delici-emici agiz yapisina sahip bocekler",
       "examples": ["Koku Bocegi", "Agustos Bocegi", "Yaprak Biti", "Su Kayakcisi"]
+    }
+  },
+  "insects": {
+    "tribolium_castaneum": {
+      "commonName": "Un Bocegi",
+      "physicalDesc": "Yetiskinler parlak koyu kirmizimsi-kahverengidir, yassi vucut yapisina sahiptir ve 3,5\u20134,0 mm uzunlugundadir.",
+      "distinguishing": ["Bilesik gozun onundeki saka cikintisi goz seviyesini ASMAZ.", "Antenler uca dogru giderek genisler."],
+      "reproduction": "Disiler yasam boyunca 300\u2013400 yumurta birakir. Yilda 3\u20134 nesil uretir.",
+      "bioNotes": "Yumurtalar yapiskani bir madde ile kaplanir ve besin kaynaklarinin icine gizlenir, bu da depolama denetimlerinde tespit edilmelerini zorlastirir."
+    },
+    "tribolium_confusum": {
+      "commonName": "Karisik Un Bocegi",
+      "physicalDesc": "Koyu kirmizimsi-kahverengi, yassi vucut, 3,5\u20134,0 mm uzunlugunda.",
+      "distinguishing": ["Gozun onundeki saka cikintisi goz seviyesini ASAR.", "Son uc anten segmenti digerlerinden belirgin sekilde genis."],
+      "reproduction": "Disiler yasam boyunca 300\u2013400 yumurta birakir. Yilda 3\u20134 nesil uretir.",
+      "bioNotes": "Benzer gorunumu nedeniyle T. castaneum ile sik karistirilir. Temel ayrim saka cikintisi ve anten yapisina goredir."
+    },
+    "sitophilus_granarius": {
+      "commonName": "Bugday Biti (Ambar Kurdu)",
+      "physicalDesc": "Koyu kahverengi ile siyah arasi, 3\u20135 mm uzunlugunda. Guclu cene yapilarina sahip belirgin bir hortuma (rostrum) sahiptir.",
+      "distinguishing": ["Pronotum ve elytra uzerinde kucuk delikler gorunur.", "Indirgenmi\u015f (korelmi\u015f) arka kanatlari nedeniyle ucamaz."],
+      "reproduction": "Disiler yumurtalarini bugday tanelerinin icine birakir ve deligi jelatinimsi bir salgi ile kapatir. Disi basina 150\u2013300 yumurta. Depolama kosullarina bagli olarak yilda 3\u20134 nesil.",
+      "bioNotes": "En yikici depolanmis tahil zaralirilardan biridir. Ucamamasi, enfestasyonlarin genellikle enfeste tahilin tasinmasiyla yayildigini gosterir."
+    },
+    "sitophilus_oryzae": {
+      "commonName": "Pirinc Biti",
+      "physicalDesc": "Kirmizimsi-kahverenginden koyu kahverengiye, 2,5\u20134,0 mm uzunlugunda. Diger hortumlu boceklere benzer bir hortuma sahiptir.",
+      "distinguishing": ["Pronotum ve elytra uzerinde S. granarius'a benzer kucuk delikler bulunur.", "S. granarius'un aksine, Pirinc Biti ucabilir."],
+      "reproduction": "Disiler yumurta birakmak icin tahil tanelerini deler. Uygun kosullarda yilda birden fazla nesil uretir.",
+      "bioNotes": "Dunya capinda depolanmis pirinc, bugday ve diger tahillarin onemli bir zararlisidir. Ucma yetenegine sahip olmasi, hasat oncesi tarlada tahili enfeste etmesine olanak saglar."
     }
   },
   "sampleResults": {
