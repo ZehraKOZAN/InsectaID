@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "InsectaID",
+    "subtitle": "AI-Powered Insect Identification"
+  },
+  "tabs": {
+    "home": "Home",
+    "encyclopedia": "Encyclopedia",
+    "history": "History"
+  },
+  "home": {
+    "species": "Species",
+    "accuracy": "Accuracy",
+    "avgTime": "Avg Time",
+    "identifyInsect": "Identify an Insect",
+    "takePhoto": "Take Photo",
+    "takePhotoSub": "Use camera for instant identification",
+    "uploadGallery": "Upload from Gallery",
+    "uploadGallerySub": "Choose an existing photo to analyze",
+    "insectTypes": "Insect Types",
+    "history": "History"
+  },
+  "encyclopedia": {
+    "title": "Insect Encyclopedia",
+    "subtitle": "Browse through {{count}} major orders of insects",
+    "species": "species"
+  },
+  "historyScreen": {
+    "title": "Analysis History",
+    "subtitle": "{{count}} identification",
+    "subtitlePlural": "{{count}} identifications",
+    "match": "match",
+    "emptyTitle": "No Identifications Yet",
+    "emptyText": "Take a photo or upload an image from the home screen to start identifying insects.",
+    "deleteEntry": "Delete Entry",
+    "deleteEntryMsg": "Remove this identification from history?",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "clearAll": "Clear All History",
+    "clearAllMsg": "This will permanently delete all identification records.",
+    "clearAllBtn": "Clear All"
+  },
+  "results": {
+    "noResults": "No results available",
+    "match": "Match",
+    "details": "Details",
+    "habitat": "Habitat",
+    "diet": "Diet",
+    "lifespan": "Lifespan",
+    "size": "Size",
+    "keyCharacteristics": "Key Characteristics",
+    "funFact": "Fun Fact"
+  },
+  "detail": {
+    "categoryNotFound": "Category not found",
+    "species": "species",
+    "about": "About",
+    "commonExamples": "Common Examples",
+    "idTip": "Identification Tip",
+    "idTipText": "For the best identification results, photograph the insect from directly above in good lighting. Try to include distinctive features like wings, antennae, and leg structure."
+  },
+  "permissions": {
+    "title": "Permission Required",
+    "camera": "Camera access is needed to identify insects.",
+    "gallery": "Photo library access is needed to identify insects."
+  },
+  "language": {
+    "title": "Language",
+    "english": "English",
+    "turkish": "Turkish"
+  },
+  "categories": {
+    "beetles": {
+      "name": "Beetles",
+      "description": "The largest order of insects with hardened forewings",
+      "examples": ["Ladybug", "Stag Beetle", "Firefly", "Weevil"]
+    },
+    "butterflies": {
+      "name": "Butterflies & Moths",
+      "description": "Scale-winged insects known for colorful patterns",
+      "examples": ["Monarch", "Swallowtail", "Luna Moth", "Painted Lady"]
+    },
+    "ants": {
+      "name": "Ants, Bees & Wasps",
+      "description": "Social insects with complex colony structures",
+      "examples": ["Honey Bee", "Fire Ant", "Paper Wasp", "Carpenter Ant"]
+    },
+    "flies": {
+      "name": "Flies & Mosquitoes",
+      "description": "Two-winged insects found worldwide",
+      "examples": ["House Fly", "Mosquito", "Crane Fly", "Fruit Fly"]
+    },
+    "dragonflies": {
+      "name": "Dragonflies & Damselflies",
+      "description": "Ancient predatory insects with remarkable flight",
+      "examples": ["Blue Dasher", "Green Darner", "Ebony Jewelwing"]
+    },
+    "grasshoppers": {
+      "name": "Grasshoppers & Crickets",
+      "description": "Jumping insects known for their songs",
+      "examples": ["Field Cricket", "Katydid", "Locust", "Grasshopper"]
+    },
+    "mantises": {
+      "name": "Praying Mantises",
+      "description": "Ambush predators with raptorial forelegs",
+      "examples": ["Chinese Mantis", "Carolina Mantis", "Orchid Mantis"]
+    },
+    "true-bugs": {
+      "name": "True Bugs",
+      "description": "Insects with piercing-sucking mouthparts",
+      "examples": ["Stink Bug", "Cicada", "Aphid", "Water Strider"]
+    }
+  },
+  "sampleResults": {
+    "name": "Monarch Butterfly",
+    "category": "Butterflies & Moths",
+    "habitat": "Open fields, meadows, gardens across North America",
+    "diet": "Nectar from milkweed and various flowers",
+    "lifespan": "2-6 weeks (summer), up to 8 months (migratory)",
+    "size": "Wingspan: 8.9-10.2 cm (3.5-4 in)",
+    "characteristics": [
+      "Distinctive orange and black wing pattern",
+      "Known for long-distance migration up to 3,000 miles",
+      "Caterpillars feed exclusively on milkweed",
+      "Toxic to predators due to cardenolide compounds"
+    ],
+    "funFact": "Monarchs are the only butterflies known to make a two-way migration, traveling up to 3,000 miles from North America to central Mexico."
+  }
+}

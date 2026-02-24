@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "InsectaID",
+    "subtitle": "Yapay Zeka Destekli Bocek Tanimlama"
+  },
+  "tabs": {
+    "home": "Ana Sayfa",
+    "encyclopedia": "Ansiklopedi",
+    "history": "Gecmis"
+  },
+  "home": {
+    "species": "Tur",
+    "accuracy": "Dogruluk",
+    "avgTime": "Ort. Sure",
+    "identifyInsect": "Bir Bocek Tanimla",
+    "takePhoto": "Fotograf Cek",
+    "takePhotoSub": "Aninda tanimlama icin kamerayi kullan",
+    "uploadGallery": "Galeriden Yukle",
+    "uploadGallerySub": "Analiz icin mevcut bir fotograf sec",
+    "insectTypes": "Bocek Turleri",
+    "history": "Gecmis"
+  },
+  "encyclopedia": {
+    "title": "Bocek Ansiklopedisi",
+    "subtitle": "{{count}} ana bocek takimina goz atin",
+    "species": "tur"
+  },
+  "historyScreen": {
+    "title": "Analiz Gecmisi",
+    "subtitle": "{{count}} tanimlama",
+    "subtitlePlural": "{{count}} tanimlama",
+    "match": "eslesme",
+    "emptyTitle": "Henuz Tanimlama Yok",
+    "emptyText": "Bocekleri tanimlamaya baslamak icin ana sayfadan bir fotograf cekin veya yukleyin.",
+    "deleteEntry": "Kaydi Sil",
+    "deleteEntryMsg": "Bu tanimlama gecmisten kaldirilsin mi?",
+    "cancel": "Iptal",
+    "delete": "Sil",
+    "clearAll": "Tum Gecmisi Temizle",
+    "clearAllMsg": "Bu islem tum tanimlama kayitlarini kalici olarak silecektir.",
+    "clearAllBtn": "Tumunu Temizle"
+  },
+  "results": {
+    "noResults": "Sonuc bulunamadi",
+    "match": "Eslesme",
+    "details": "Detaylar",
+    "habitat": "Habitat",
+    "diet": "Beslenme",
+    "lifespan": "Omur",
+    "size": "Boyut",
+    "keyCharacteristics": "Temel Ozellikler",
+    "funFact": "Ilginc Bilgi"
+  },
+  "detail": {
+    "categoryNotFound": "Kategori bulunamadi",
+    "species": "tur",
+    "about": "Hakkinda",
+    "commonExamples": "Yaygin Ornekler",
+    "idTip": "Tanimlama Ipucu",
+    "idTipText": "En iyi tanimlama sonuclari icin bocegi iyi aydinlatmada dogrudan yukaridan fotograflayin. Kanat, anten ve bacak yapisi gibi ayirt edici ozellikleri dahil etmeye calisin."
+  },
+  "permissions": {
+    "title": "Izin Gerekli",
+    "camera": "Bocekleri tanimlamak icin kamera erisimi gereklidir.",
+    "gallery": "Bocekleri tanimlamak icin fotograf kutuphanesi erisimi gereklidir."
+  },
+  "language": {
+    "title": "Dil",
+    "english": "Ingilizce",
+    "turkish": "Turkce"
+  },
+  "categories": {
+    "beetles": {
+      "name": "Bocekler (Kinikanatlilar)",
+      "description": "Sertlesmis on kanatlara sahip en buyuk bocek takimi",
+      "examples": ["Ugur Bocegi", "Geyik Bocegi", "Atesbocegi", "Hortumlu Bocek"]
+    },
+    "butterflies": {
+      "name": "Kelebekler ve Guveleler",
+      "description": "Renkli desenleriyle bilinen pullu kanatli bocekler",
+      "examples": ["Kral Kelebegi", "Kirlangiçkuyruk", "Luna Guvesi", "Boyali Hanimefendi"]
+    },
+    "ants": {
+      "name": "Karinlcalar, Arilar ve Esek Arilari",
+      "description": "Karmasik koloni yapilarina sahip sosyal bocekler",
+      "examples": ["Bal Arisi", "Ates Karincasi", "Kagit Arisi", "Marangoz Karincasi"]
+    },
+    "flies": {
+      "name": "Sinekler ve Sivrisinekler",
+      "description": "Dunya capinda bulunan cift kanatli bocekler",
+      "examples": ["Ev Sinegi", "Sivrisinek", "Turna Sinegi", "Meyve Sinegi"]
+    },
+    "dragonflies": {
+      "name": "Yusufcuklar ve Kizbocekelri",
+      "description": "Olaganustu ucus kabiliyetine sahip kadim yirtici bocekler",
+      "examples": ["Mavi Surukleyici", "Yesil Ok", "Abanoz Mucevher Kanadi"]
+    },
+    "grasshoppers": {
+      "name": "Cekirgeler ve Cirikbocekleri",
+      "description": "Sarkilariyla bilinen sicrayan bocekler",
+      "examples": ["Tarla Cirik Bocegi", "Catikana", "Colek", "Cekirge"]
+    },
+    "mantises": {
+      "name": "Peygamber Develeri",
+      "description": "Avci on ayaklara sahip pusu avcilari",
+      "examples": ["Cin Peygamber Devesi", "Carolina Peygamber Devesi", "Orkide Peygamber Devesi"]
+    },
+    "true-bugs": {
+      "name": "Gercek Bocekler",
+      "description": "Delici-emici agiz yapisina sahip bocekler",
+      "examples": ["Koku Bocegi", "Agustos Bocegi", "Yaprak Biti", "Su Kayakcisi"]
+    }
+  },
+  "sampleResults": {
+    "name": "Kral Kelebegi",
+    "category": "Kelebekler ve Guveleler",
+    "habitat": "Kuzey Amerika genelinde acik alanlar, cayirlar, bahceler",
+    "diet": "Sutotu ve cesitli ciceklerden nektar",
+    "lifespan": "2-6 hafta (yaz), 8 aya kadar (gocmen)",
+    "size": "Kanat acikligi: 8,9-10,2 cm",
+    "characteristics": [
+      "Belirgin turuncu ve siyah kanat deseni",
+      "3.000 mile kadar uzun mesafe gocu ile bilinir",
+      "Tirtilarl yalnizca sutotu ile beslenir",
+      "Kardenolid bilesikleri nedeniyle avcilara zehirlidir"
+    ],
+    "funFact": "Kral kelebeleri, Kuzey Amerika'dan Meksika'ya 3.000 mile kadar seyahat ederek iki yonlu goc yapan tek kelebek turudur."
+  }
+}

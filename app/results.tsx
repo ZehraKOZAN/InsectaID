@@ -21,6 +21,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import Colors from "@/constants/colors";
+import { useI18n } from "@/lib/i18n";
 
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
@@ -47,6 +48,7 @@ export default function ResultsScreen() {
   const insets = useSafeAreaInsets();
   const topPadding = Platform.OS === "web" ? 67 : insets.top;
   const bottomPadding = Platform.OS === "web" ? 34 : insets.bottom;
+  const { t } = useI18n();
   const params = useLocalSearchParams<{
     imageUri: string;
     resultJson: string;
@@ -62,7 +64,7 @@ export default function ResultsScreen() {
   if (!result) {
     return (
       <View style={styles.container}>
-        <Text>No results available</Text>
+        <Text>{t("results.noResults")}</Text>
       </View>
     );
   }
@@ -133,7 +135,7 @@ export default function ResultsScreen() {
                   { color: getConfidenceColor(result.confidence) },
                 ]}
               >
-                {result.confidence}% Match
+                {result.confidence}% {t("results.match")}
               </Text>
             </View>
           </Animated.View>
@@ -153,18 +155,20 @@ export default function ResultsScreen() {
             entering={FadeInUp.duration(500).delay(200)}
             style={styles.infoCard}
           >
-            <Text style={styles.cardSectionTitle}>Details</Text>
-            <InfoRow label="Habitat" value={result.habitat} />
-            <InfoRow label="Diet" value={result.diet} />
-            <InfoRow label="Lifespan" value={result.lifespan} />
-            <InfoRow label="Size" value={result.size} />
+            <Text style={styles.cardSectionTitle}>{t("results.details")}</Text>
+            <InfoRow label={t("results.habitat")} value={result.habitat} />
+            <InfoRow label={t("results.diet")} value={result.diet} />
+            <InfoRow label={t("results.lifespan")} value={result.lifespan} />
+            <InfoRow label={t("results.size")} value={result.size} />
           </Animated.View>
 
           <Animated.View
             entering={FadeInUp.duration(500).delay(300)}
             style={styles.infoCard}
           >
-            <Text style={styles.cardSectionTitle}>Key Characteristics</Text>
+            <Text style={styles.cardSectionTitle}>
+              {t("results.keyCharacteristics")}
+            </Text>
             {result.characteristics?.map((char: string, i: number) => (
               <CharacteristicItem key={i} text={char} index={i} />
             ))}
@@ -177,7 +181,7 @@ export default function ResultsScreen() {
             >
               <View style={styles.funFactHeader}>
                 <Ionicons name="bulb" size={20} color={Colors.gold} />
-                <Text style={styles.funFactTitle}>Fun Fact</Text>
+                <Text style={styles.funFactTitle}>{t("results.funFact")}</Text>
               </View>
               <Text style={styles.funFactText}>{result.funFact}</Text>
             </Animated.View>

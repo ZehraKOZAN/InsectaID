@@ -21,6 +21,7 @@ import Animated, {
 } from "react-native-reanimated";
 import Colors from "@/constants/colors";
 import { INSECT_CATEGORIES } from "@/lib/insect-data";
+import { useI18n } from "@/lib/i18n";
 
 function ExampleItem({ name, index }: { name: string; index: number }) {
   return (
@@ -42,6 +43,7 @@ export default function InsectDetailScreen() {
   const topPadding = Platform.OS === "web" ? 67 : insets.top;
   const bottomPadding = Platform.OS === "web" ? 34 : insets.bottom;
   const params = useLocalSearchParams<{ categoryId: string }>();
+  const { t, tArray } = useI18n();
 
   const category = INSECT_CATEGORIES.find((c) => c.id === params.categoryId);
   const backScale = useSharedValue(1);
@@ -52,10 +54,14 @@ export default function InsectDetailScreen() {
   if (!category) {
     return (
       <View style={styles.container}>
-        <Text>Category not found</Text>
+        <Text>{t("detail.categoryNotFound")}</Text>
       </View>
     );
   }
+
+  const localName = t(`categories.${category.id}.name`);
+  const localDesc = t(`categories.${category.id}.description`);
+  const localExamples = tArray(`categories.${category.id}.examples`);
 
   return (
     <View style={styles.container}>
@@ -99,10 +105,12 @@ export default function InsectDetailScreen() {
               color="#fff"
             />
           </View>
-          <Text style={styles.categoryName}>{category.name}</Text>
+          <Text style={styles.categoryName}>{localName}</Text>
           <Text style={styles.categoryOrder}>{category.scientificOrder}</Text>
           <View style={styles.countBadge}>
-            <Text style={styles.countText}>{category.count} species</Text>
+            <Text style={styles.countText}>
+              {category.count} {t("detail.species")}
+            </Text>
           </View>
         </Animated.View>
       </LinearGradient>
@@ -115,16 +123,16 @@ export default function InsectDetailScreen() {
           entering={FadeInUp.duration(500).delay(200)}
           style={styles.descCard}
         >
-          <Text style={styles.sectionTitle}>About</Text>
-          <Text style={styles.descText}>{category.description}</Text>
+          <Text style={styles.sectionTitle}>{t("detail.about")}</Text>
+          <Text style={styles.descText}>{localDesc}</Text>
         </Animated.View>
 
         <Animated.View
           entering={FadeInUp.duration(500).delay(250)}
           style={styles.examplesCard}
         >
-          <Text style={styles.sectionTitle}>Common Examples</Text>
-          {category.examples.map((ex, i) => (
+          <Text style={styles.sectionTitle}>{t("detail.commonExamples")}</Text>
+          {localExamples.map((ex, i) => (
             <ExampleItem key={ex} name={ex} index={i} />
           ))}
         </Animated.View>
@@ -135,13 +143,9 @@ export default function InsectDetailScreen() {
         >
           <View style={styles.tipHeader}>
             <Ionicons name="camera" size={20} color={Colors.forestGreen} />
-            <Text style={styles.tipTitle}>Identification Tip</Text>
+            <Text style={styles.tipTitle}>{t("detail.idTip")}</Text>
           </View>
-          <Text style={styles.tipText}>
-            For the best identification results, photograph the insect from
-            directly above in good lighting. Try to include distinctive features
-            like wings, antennae, and leg structure.
-          </Text>
+          <Text style={styles.tipText}>{t("detail.idTipText")}</Text>
         </Animated.View>
       </ScrollView>
     </View>

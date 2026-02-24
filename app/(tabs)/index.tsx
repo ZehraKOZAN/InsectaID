@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -6,7 +6,7 @@ import {
   Pressable,
   Platform,
   Alert,
-  Dimensions,
+  Modal,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
@@ -20,15 +20,13 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
-  withTiming,
   FadeInUp,
   FadeInDown,
 } from "react-native-reanimated";
 import Colors from "@/constants/colors";
 import { addToHistory } from "@/lib/history-storage";
 import { SAMPLE_RESULTS } from "@/lib/insect-data";
-
-const { width: SCREEN_WIDTH } = Dimensions.get("window");
+import { useI18n, type Language } from "@/lib/i18n";
 
 function ActionButton({
   icon,
@@ -149,17 +147,120 @@ function SmallCard({
   );
 }
 
+function LanguageSwitcher() {
+  const { lang, setLang, t } = useI18n();
+  const [showModal, setShowModal] = useState(false);
+  const scale = useSharedValue(1);
+  const animStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  const languages: { code: Language; label: string; flag: string }[] = [
+    { code: "en", label: t("language.english"), flag: "EN" },
+    { code: "tr", label: t("language.turkish"), flag: "TR" },
+  ];
+
+  return (
+    <>
+      <Animated.View style={animStyle}>
+        <Pressable
+          onPressIn={() => {
+            scale.value = withSpring(0.9);
+          }}
+          onPressOut={() => {
+            scale.value = withSpring(1);
+          }}
+          onPress={() => {
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+            setShowModal(true);
+          }}
+          style={styles.langButton}
+        >
+          <Ionicons name="language" size={18} color="#fff" />
+          <Text style={styles.langButtonText}>
+            {lang === "en" ? "EN" : "TR"}
+          </Text>
+        </Pressable>
+      </Animated.View>
+
+      <Modal
+        visible={showModal}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowModal(false)}
+      >
+        <Pressable
+          style={styles.modalOverlay}
+          onPress={() => setShowModal(false)}
+        >
+          <View style={styles.langModal}>
+            <Text style={styles.langModalTitle}>{t("language.title")}</Text>
+            {languages.map((item) => (
+              <Pressable
+                key={item.code}
+                onPress={() => {
+                  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+                  setLang(item.code);
+                  setShowModal(false);
+                }}
+                style={[
+                  styles.langOption,
+                  lang === item.code && styles.langOptionActive,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.langOptionFlag,
+                    lang === item.code && styles.langOptionTextActive,
+                  ]}
+                >
+                  {item.flag}
+                </Text>
+                <Text
+                  style={[
+                    styles.langOptionLabel,
+                    lang === item.code && styles.langOptionTextActive,
+                  ]}
+                >
+                  {item.label}
+                </Text>
+                {lang === item.code && (
+                  <Ionicons
+                    name="checkmark-circle"
+                    size={20}
+                    color={Colors.forestGreen}
+                  />
+                )}
+              </Pressable>
+            ))}
+          </View>
+        </Pressable>
+      </Modal>
+    </>
+  );
+}
+
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const topPadding = Platform.OS === "web" ? 67 : insets.top;
+  const { t, lang } = useI18n();
 
   const simulateIdentification = useCallback(
     async (imageUri: string) => {
-      const result = SAMPLE_RESULTS[0];
+      const result = {
+        ...SAMPLE_RESULTS[0],
+        name: t("sampleResults.name"),
+        category: t("sampleResults.category"),
+        habitat: t("sampleResults.habitat"),
+        diet: t("sampleResults.diet"),
+        lifespan: t("sampleResults.lifespan"),
+        size: t("sampleResults.size"),
+        funFact: t("sampleResults.funFact"),
+      };
       const historyItem = {
         id: Crypto.randomUUID(),
         name: result.name,
-        scientificName: result.scientificName,
+        scientificName: SAMPLE_RESULTS[0].scientificName,
         confidence: result.confidence,
         imageUri,
         date: new Date().toISOString(),
@@ -175,17 +276,14 @@ export default function HomeScreen() {
         },
       });
     },
-    []
+    [t, lang]
   );
 
   const handleTakePhoto = useCallback(async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status !== "granted") {
-      Alert.alert(
-        "Permission Required",
-        "Camera access is needed to identify insects."
-      );
+      Alert.alert(t("permissions.title"), t("permissions.camera"));
       return;
     }
     const result = await ImagePicker.launchCameraAsync({
@@ -197,16 +295,13 @@ export default function HomeScreen() {
     if (!result.canceled && result.assets[0]) {
       simulateIdentification(result.assets[0].uri);
     }
-  }, [simulateIdentification]);
+  }, [simulateIdentification, t]);
 
   const handleUploadPhoto = useCallback(async () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== "granted") {
-      Alert.alert(
-        "Permission Required",
-        "Photo library access is needed to identify insects."
-      );
+      Alert.alert(t("permissions.title"), t("permissions.gallery"));
       return;
     }
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -218,7 +313,7 @@ export default function HomeScreen() {
     if (!result.canceled && result.assets[0]) {
       simulateIdentification(result.assets[0].uri);
     }
-  }, [simulateIdentification]);
+  }, [simulateIdentification, t]);
 
   return (
     <View style={styles.container}>
@@ -229,6 +324,11 @@ export default function HomeScreen() {
         style={styles.headerGradient}
       />
       <View style={[styles.content, { paddingTop: topPadding + 16 }]}>
+        <View style={styles.topBar}>
+          <View style={styles.topBarSpacer} />
+          <LanguageSwitcher />
+        </View>
+
         <Animated.View
           entering={FadeInUp.duration(600).delay(100)}
           style={styles.heroSection}
@@ -240,10 +340,8 @@ export default function HomeScreen() {
               contentFit="contain"
             />
           </View>
-          <Text style={styles.appName}>InsectaID</Text>
-          <Text style={styles.appSubtitle}>
-            AI-Powered Insect Identification
-          </Text>
+          <Text style={styles.appName}>{t("app.name")}</Text>
+          <Text style={styles.appSubtitle}>{t("app.subtitle")}</Text>
         </Animated.View>
 
         <Animated.View
@@ -252,17 +350,17 @@ export default function HomeScreen() {
         >
           <View style={styles.statItem}>
             <Text style={styles.statNumber}>1M+</Text>
-            <Text style={styles.statLabel}>Species</Text>
+            <Text style={styles.statLabel}>{t("home.species")}</Text>
           </View>
           <View style={styles.statDivider} />
           <View style={styles.statItem}>
             <Text style={styles.statNumber}>95%</Text>
-            <Text style={styles.statLabel}>Accuracy</Text>
+            <Text style={styles.statLabel}>{t("home.accuracy")}</Text>
           </View>
           <View style={styles.statDivider} />
           <View style={styles.statItem}>
             <Text style={styles.statNumber}>2s</Text>
-            <Text style={styles.statLabel}>Avg Time</Text>
+            <Text style={styles.statLabel}>{t("home.avgTime")}</Text>
           </View>
         </Animated.View>
 
@@ -270,18 +368,18 @@ export default function HomeScreen() {
           entering={FadeInDown.duration(600).delay(400)}
           style={styles.actionsSection}
         >
-          <Text style={styles.sectionTitle}>Identify an Insect</Text>
+          <Text style={styles.sectionTitle}>{t("home.identifyInsect")}</Text>
           <ActionButton
             icon="camera"
-            label="Take Photo"
-            subtitle="Use camera for instant identification"
+            label={t("home.takePhoto")}
+            subtitle={t("home.takePhotoSub")}
             onPress={handleTakePhoto}
             variant="primary"
           />
           <ActionButton
             icon="images"
-            label="Upload from Gallery"
-            subtitle="Choose an existing photo to analyze"
+            label={t("home.uploadGallery")}
+            subtitle={t("home.uploadGallerySub")}
             onPress={handleUploadPhoto}
             variant="secondary"
           />
@@ -293,7 +391,7 @@ export default function HomeScreen() {
         >
           <SmallCard
             icon="book"
-            label="Insect Types"
+            label={t("home.insectTypes")}
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
               router.push("/(tabs)/encyclopedia");
@@ -301,7 +399,7 @@ export default function HomeScreen() {
           />
           <SmallCard
             icon="time"
-            label="History"
+            label={t("home.history")}
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
               router.push("/(tabs)/history");
@@ -330,6 +428,82 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+  topBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  topBarSpacer: {
+    width: 60,
+  },
+  langButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.2)",
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 20,
+    gap: 4,
+  },
+  langButtonText: {
+    fontFamily: "Inter_600SemiBold",
+    fontSize: 12,
+    color: "#fff",
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  langModal: {
+    backgroundColor: Colors.cardBg,
+    borderRadius: 20,
+    padding: 20,
+    width: 280,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.2,
+    shadowRadius: 16,
+    elevation: 10,
+  },
+  langModalTitle: {
+    fontFamily: "PlayfairDisplay_600SemiBold",
+    fontSize: 20,
+    color: Colors.textPrimary,
+    marginBottom: 16,
+    textAlign: "center",
+  },
+  langOption: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 14,
+    borderRadius: 12,
+    marginBottom: 6,
+    backgroundColor: "rgba(30,86,49,0.04)",
+  },
+  langOptionActive: {
+    backgroundColor: Colors.forestGreen + "12",
+    borderWidth: 1,
+    borderColor: Colors.forestGreen + "30",
+  },
+  langOptionFlag: {
+    fontFamily: "Inter_700Bold",
+    fontSize: 16,
+    color: Colors.textPrimary,
+    marginRight: 12,
+    width: 28,
+  },
+  langOptionLabel: {
+    fontFamily: "Inter_500Medium",
+    fontSize: 15,
+    color: Colors.textPrimary,
+    flex: 1,
+  },
+  langOptionTextActive: {
+    color: Colors.forestGreen,
   },
   heroSection: {
     alignItems: "center",
@@ -363,6 +537,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,0.75)",
     marginTop: 4,
     letterSpacing: 0.5,
+    textAlign: "center",
   },
   statsRow: {
     flexDirection: "row",

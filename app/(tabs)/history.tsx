@@ -27,6 +27,7 @@ import {
   removeFromHistory,
 } from "@/lib/history-storage";
 import type { HistoryItem } from "@/lib/insect-data";
+import { useI18n } from "@/lib/i18n";
 
 function HistoryCard({
   item,
@@ -41,14 +42,18 @@ function HistoryCard({
   const animStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
   }));
+  const { t, lang } = useI18n();
 
-  const formattedDate = new Date(item.date).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const formattedDate = new Date(item.date).toLocaleDateString(
+    lang === "tr" ? "tr-TR" : "en-US",
+    {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }
+  );
 
   const getConfidenceColor = (c: number) => {
     if (c >= 90) return Colors.forestGreen;
@@ -70,14 +75,18 @@ function HistoryCard({
         }}
         onLongPress={() => {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-          Alert.alert("Delete Entry", "Remove this identification from history?", [
-            { text: "Cancel", style: "cancel" },
-            {
-              text: "Delete",
-              style: "destructive",
-              onPress: () => onDelete(item.id),
-            },
-          ]);
+          Alert.alert(
+            t("historyScreen.deleteEntry"),
+            t("historyScreen.deleteEntryMsg"),
+            [
+              { text: t("historyScreen.cancel"), style: "cancel" },
+              {
+                text: t("historyScreen.delete"),
+                style: "destructive",
+                onPress: () => onDelete(item.id),
+              },
+            ]
+          );
         }}
         style={styles.historyCard}
       >
@@ -107,7 +116,9 @@ function HistoryCard({
           >
             {item.confidence}%
           </Text>
-          <Text style={styles.confidenceLabel}>match</Text>
+          <Text style={styles.confidenceLabel}>
+            {t("historyScreen.match")}
+          </Text>
         </View>
       </Pressable>
     </Animated.View>
@@ -118,6 +129,7 @@ export default function HistoryScreen() {
   const insets = useSafeAreaInsets();
   const topPadding = Platform.OS === "web" ? 67 : insets.top;
   const [history, setHistory] = useState<HistoryItem[]>([]);
+  const { t } = useI18n();
 
   useFocusEffect(
     useCallback(() => {
@@ -138,12 +150,12 @@ export default function HistoryScreen() {
   const handleClearAll = () => {
     if (history.length === 0) return;
     Alert.alert(
-      "Clear All History",
-      "This will permanently delete all identification records.",
+      t("historyScreen.clearAll"),
+      t("historyScreen.clearAllMsg"),
       [
-        { text: "Cancel", style: "cancel" },
+        { text: t("historyScreen.cancel"), style: "cancel" },
         {
-          text: "Clear All",
+          text: t("historyScreen.clearAllBtn"),
           style: "destructive",
           onPress: async () => {
             await clearHistory();
@@ -153,6 +165,11 @@ export default function HistoryScreen() {
       ]
     );
   };
+
+  const subtitleKey =
+    history.length !== 1
+      ? "historyScreen.subtitlePlural"
+      : "historyScreen.subtitle";
 
   return (
     <View style={styles.container}>
@@ -164,14 +181,20 @@ export default function HistoryScreen() {
       >
         <View style={styles.headerRow}>
           <View>
-            <Text style={styles.headerTitle}>Analysis History</Text>
+            <Text style={styles.headerTitle}>
+              {t("historyScreen.title")}
+            </Text>
             <Text style={styles.headerSubtitle}>
-              {history.length} identification{history.length !== 1 ? "s" : ""}
+              {t(subtitleKey, { count: history.length })}
             </Text>
           </View>
           {history.length > 0 && (
             <Pressable onPress={handleClearAll} style={styles.clearButton}>
-              <Ionicons name="trash-outline" size={18} color="rgba(255,255,255,0.8)" />
+              <Ionicons
+                name="trash-outline"
+                size={18}
+                color="rgba(255,255,255,0.8)"
+              />
             </Pressable>
           )}
         </View>
@@ -182,10 +205,11 @@ export default function HistoryScreen() {
           <View style={styles.emptyIcon}>
             <Ionicons name="time-outline" size={48} color={Colors.textMuted} />
           </View>
-          <Text style={styles.emptyTitle}>No Identifications Yet</Text>
+          <Text style={styles.emptyTitle}>
+            {t("historyScreen.emptyTitle")}
+          </Text>
           <Text style={styles.emptyText}>
-            Take a photo or upload an image from the home screen to start
-            identifying insects.
+            {t("historyScreen.emptyText")}
           </Text>
         </View>
       ) : (

@@ -20,6 +20,7 @@ import Animated, {
 } from "react-native-reanimated";
 import Colors from "@/constants/colors";
 import { INSECT_CATEGORIES, type InsectCategory } from "@/lib/insect-data";
+import { useI18n } from "@/lib/i18n";
 
 function CategoryCard({
   item,
@@ -32,6 +33,10 @@ function CategoryCard({
   const animStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
   }));
+  const { t } = useI18n();
+
+  const localName = t(`categories.${item.id}.name`);
+  const localDesc = t(`categories.${item.id}.description`);
 
   return (
     <Animated.View
@@ -62,15 +67,15 @@ function CategoryCard({
           />
         </View>
         <View style={styles.cardContent}>
-          <Text style={styles.cardTitle}>{item.name}</Text>
+          <Text style={styles.cardTitle}>{localName}</Text>
           <Text style={styles.cardOrder}>{item.scientificOrder}</Text>
           <Text style={styles.cardDesc} numberOfLines={2}>
-            {item.description}
+            {localDesc}
           </Text>
         </View>
         <View style={styles.cardRight}>
           <Text style={styles.cardCount}>{item.count}</Text>
-          <Text style={styles.cardSpecies}>species</Text>
+          <Text style={styles.cardSpecies}>{t("encyclopedia.species")}</Text>
           <Ionicons
             name="chevron-forward"
             size={16}
@@ -86,6 +91,7 @@ function CategoryCard({
 export default function EncyclopediaScreen() {
   const insets = useSafeAreaInsets();
   const topPadding = Platform.OS === "web" ? 67 : insets.top;
+  const { t } = useI18n();
 
   return (
     <View style={styles.container}>
@@ -95,9 +101,9 @@ export default function EncyclopediaScreen() {
         end={{ x: 0, y: 1 }}
         style={[styles.header, { paddingTop: topPadding + 12 }]}
       >
-        <Text style={styles.headerTitle}>Insect Encyclopedia</Text>
+        <Text style={styles.headerTitle}>{t("encyclopedia.title")}</Text>
         <Text style={styles.headerSubtitle}>
-          Browse through {INSECT_CATEGORIES.length} major orders of insects
+          {t("encyclopedia.subtitle", { count: INSECT_CATEGORIES.length })}
         </Text>
       </LinearGradient>
 
