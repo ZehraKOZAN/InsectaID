@@ -83,87 +83,140 @@
     "beetles": {
       "name": "Bocekler (Kinikanatlilar)",
       "description": "Sertlesmis on kanatlara sahip en buyuk bocek takimi",
-      "examples": ["Ugur Bocegi", "Geyik Bocegi", "Atesbocegi", "Hortumlu Bocek"]
+      "examples": [
+        "Ugur Bocegi",
+        "Geyik Bocegi",
+        "Atesbocegi",
+        "Hortumlu Bocek"
+      ]
     },
     "butterflies": {
       "name": "Kelebekler ve Guveleler",
       "description": "Renkli desenleriyle bilinen pullu kanatli bocekler",
-      "examples": ["Kral Kelebegi", "Kirlangiçkuyruk", "Luna Guvesi", "Boyali Hanimefendi"]
+      "examples": [
+        "Kral Kelebegi",
+        "Kirlangiçkuyruk",
+        "Luna Guvesi",
+        "Boyali Hanimefendi"
+      ]
     },
     "ants": {
       "name": "Karinlcalar, Arilar ve Esek Arilari",
       "description": "Karmasik koloni yapilarina sahip sosyal bocekler",
-      "examples": ["Bal Arisi", "Ates Karincasi", "Kagit Arisi", "Marangoz Karincasi"]
+      "examples": [
+        "Bal Arisi",
+        "Ates Karincasi",
+        "Kagit Arisi",
+        "Marangoz Karincasi"
+      ]
     },
     "flies": {
       "name": "Sinekler ve Sivrisinekler",
       "description": "Dunya capinda bulunan cift kanatli bocekler",
-      "examples": ["Ev Sinegi", "Sivrisinek", "Turna Sinegi", "Meyve Sinegi"]
+      "examples": [
+        "Ev Sinegi",
+        "Sivrisinek",
+        "Turna Sinegi",
+        "Meyve Sinegi"
+      ]
     },
     "dragonflies": {
       "name": "Yusufcuklar ve Kizbocekelri",
       "description": "Olaganustu ucus kabiliyetine sahip kadim yirtici bocekler",
-      "examples": ["Mavi Surukleyici", "Yesil Ok", "Abanoz Mucevher Kanadi"]
+      "examples": [
+        "Mavi Surukleyici",
+        "Yesil Ok",
+        "Abanoz Mucevher Kanadi"
+      ]
     },
     "grasshoppers": {
       "name": "Cekirgeler ve Cirikbocekleri",
       "description": "Sarkilariyla bilinen sicrayan bocekler",
-      "examples": ["Tarla Cirik Bocegi", "Catikana", "Colek", "Cekirge"]
+      "examples": [
+        "Tarla Cirik Bocegi",
+        "Catikana",
+        "Colek",
+        "Cekirge"
+      ]
     },
     "mantises": {
       "name": "Peygamber Develeri",
       "description": "Avci on ayaklara sahip pusu avcilari",
-      "examples": ["Cin Peygamber Devesi", "Carolina Peygamber Devesi", "Orkide Peygamber Devesi"]
+      "examples": [
+        "Cin Peygamber Devesi",
+        "Carolina Peygamber Devesi",
+        "Orkide Peygamber Devesi"
+      ]
     },
     "true-bugs": {
       "name": "Gercek Bocekler",
       "description": "Delici-emici agiz yapisina sahip bocekler",
-      "examples": ["Koku Bocegi", "Agustos Bocegi", "Yaprak Biti", "Su Kayakcisi"]
+      "examples": [
+        "Koku Bocegi",
+        "Agustos Bocegi",
+        "Yaprak Biti",
+        "Su Kayakcisi"
+      ]
     }
   },
   "insects": {
     "tribolium_castaneum": {
       "commonName": "Un Bocegi",
       "physicalDesc": "Yetiskinler parlak koyu kirmizimsi-kahverengidir, yassi vucut yapisina sahiptir ve 3,5\u20134,0 mm uzunlugundadir.",
-      "distinguishing": ["Bilesik gozun onundeki saka cikintisi goz seviyesini ASMAZ.", "Antenler uca dogru giderek genisler."],
+      "distinguishing": [
+        "Bilesik gozun onundeki saka cikintisi goz seviyesini ASMAZ.",
+        "Antenler uca dogru giderek genisler."
+      ],
       "reproduction": "Disiler yasam boyunca 300\u2013400 yumurta birakir. Yilda 3\u20134 nesil uretir.",
       "bioNotes": "Yumurtalar yapiskani bir madde ile kaplanir ve besin kaynaklarinin icine gizlenir, bu da depolama denetimlerinde tespit edilmelerini zorlastirir."
     },
     "tribolium_confusum": {
       "commonName": "Karisik Un Bocegi",
       "physicalDesc": "Koyu kirmizimsi-kahverengi, yassi vucut, 3,5\u20134,0 mm uzunlugunda.",
-      "distinguishing": ["Gozun onundeki saka cikintisi goz seviyesini ASAR.", "Son uc anten segmenti digerlerinden belirgin sekilde genis."],
+      "distinguishing": [
+        "Gozun onundeki saka cikintisi goz seviyesini ASAR.",
+        "Son uc anten segmenti digerlerinden belirgin sekilde genis."
+      ],
       "reproduction": "Disiler yasam boyunca 300\u2013400 yumurta birakir. Yilda 3\u20134 nesil uretir.",
       "bioNotes": "Benzer gorunumu nedeniyle T. castaneum ile sik karistirilir. Temel ayrim saka cikintisi ve anten yapisina goredir."
     },
     "sitophilus_granarius": {
       "commonName": "Bugday Biti (Ambar Kurdu)",
       "physicalDesc": "Koyu kahverengi ile siyah arasi, 3\u20135 mm uzunlugunda. Guclu cene yapilarina sahip belirgin bir hortuma (rostrum) sahiptir.",
-      "distinguishing": ["Pronotum ve elytra uzerinde kucuk delikler gorunur.", "Indirgenmi\u015f (korelmi\u015f) arka kanatlari nedeniyle ucamaz."],
+      "distinguishing": [
+        "Pronotum ve elytra uzerinde kucuk delikler gorunur.",
+        "Indirgenmi\u015f (korelmi\u015f) arka kanatlari nedeniyle ucamaz."
+      ],
       "reproduction": "Disiler yumurtalarini bugday tanelerinin icine birakir ve deligi jelatinimsi bir salgi ile kapatir. Disi basina 150\u2013300 yumurta. Depolama kosullarina bagli olarak yilda 3\u20134 nesil.",
       "bioNotes": "En yikici depolanmis tahil zaralirilardan biridir. Ucamamasi, enfestasyonlarin genellikle enfeste tahilin tasinmasiyla yayildigini gosterir."
     },
     "sitophilus_oryzae": {
       "commonName": "Pirinc Biti",
       "physicalDesc": "Kirmizimsi-kahverenginden koyu kahverengiye, 2,5\u20134,0 mm uzunlugunda. Diger hortumlu boceklere benzer bir hortuma sahiptir.",
-      "distinguishing": ["Pronotum ve elytra uzerinde S. granarius'a benzer kucuk delikler bulunur.", "S. granarius'un aksine, Pirinc Biti ucabilir."],
+      "distinguishing": [
+        "Pronotum ve elytra uzerinde S. granarius'a benzer kucuk delikler bulunur.",
+        "S. granarius'un aksine, Pirinc Biti ucabilir."
+      ],
       "reproduction": "Disiler yumurta birakmak icin tahil tanelerini deler. Uygun kosullarda yilda birden fazla nesil uretir.",
       "bioNotes": "Dunya capinda depolanmis pirinc, bugday ve diger tahillarin onemli bir zararlisidir. Ucma yetenegine sahip olmasi, hasat oncesi tarlada tahili enfeste etmesine olanak saglar."
     }
   },
   "sampleResults": {
-    "name": "Kral Kelebegi",
-    "category": "Kelebekler ve Guveleler",
-    "habitat": "Kuzey Amerika genelinde acik alanlar, cayirlar, bahceler",
-    "diet": "Sutotu ve cesitli ciceklerden nektar",
-    "lifespan": "2-6 hafta (yaz), 8 aya kadar (gocmen)",
-    "size": "Kanat acikligi: 8,9-10,2 cm",
+    "name": "Sitophilus granarius (Buğday biti)",
+    "category": "Depolanmış Tahıl Zararlısı",
+    "habitat": "Tahıl depoları, silolar, ambarlar ve un fabrikaları",
+    "diet": "Buğday ve diğer depolanmış tahıllar",
+    "lifespan": "Sıcaklık ve nem koşullarına bağlı olarak yaklaşık 4-5 ay",
+    "size": "3-5 mm",
     "characteristics": [
-      "Belirgin turuncu ve siyah kanat deseni",
-      "3.000 mile kadar uzun mesafe gocu ile bilinir",
-      "Tirtilarl yalnizca sutotu ile beslenir",
-      "Kardenolid bilesikleri nedeniyle avcilara zehirlidir"
+      "Koyu kahverengi veya siyah renkli gövde",
+      "Baş kısmında belirgin ve uzamış hortum (rostrum) bulunur",
+      "Pronotum ve elytra üzerinde küçük çukurcuklar vardır",
+      "Alt kanatları körelmiş olduğu için uçamaz",
+      "Dişiler yumurtalarını buğday tanelerinin içine bırakır",
+      "Her dişi 150-300 yumurta bırakabilir",
+      "Uygun depolama koşullarında yılda 3-4 döl verebilir"
     ],
-    "funFact": "Kral kelebeleri, Kuzey Amerika'dan Meksika'ya 3.000 mile kadar seyahat ederek iki yonlu goc yapan tek kelebek turudur."
+    "funFact": "Buğday biti, depolanan tahılların içinde geliştiği için dışarıdan fark edilmesi zor olan önemli bir depo zararlısıdır."
   }
 }

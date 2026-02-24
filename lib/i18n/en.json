@@ -152,18 +152,21 @@
     }
   },
   "sampleResults": {
-    "name": "Monarch Butterfly",
-    "category": "Butterflies & Moths",
-    "habitat": "Open fields, meadows, gardens across North America",
-    "diet": "Nectar from milkweed and various flowers",
-    "lifespan": "2-6 weeks (summer), up to 8 months (migratory)",
-    "size": "Wingspan: 8.9-10.2 cm (3.5-4 in)",
+    "name": "Sitophilus granarius (Granary Weevil)",
+    "category": "Stored Grain Pest",
+    "habitat": "Grain storage facilities, silos, warehouses, flour mills",
+    "diet": "Wheat and other stored cereal grains",
+    "lifespan": "Approximately 4-5 months depending on temperature and humidity",
+    "size": "3-5 mm in length",
     "characteristics": [
-      "Distinctive orange and black wing pattern",
-      "Known for long-distance migration up to 3,000 miles",
-      "Caterpillars feed exclusively on milkweed",
-      "Toxic to predators due to cardenolide compounds"
+      "Dark brown to black body color",
+    "Distinct elongated snout (rostrum) with strong mandibles",
+    "Small punctures visible on pronotum and elytra",
+    "Cannot fly due to reduced hind wings",
+    "Females lay eggs inside wheat kernels and seal the hole with a gelatinous secretion",
+    "Each female lays 150-300 eggs",
+    "Produces 3-4 generations per year under suitable storage conditions"
     ],
-    "funFact": "Monarchs are the only butterflies known to make a two-way migration, traveling up to 3,000 miles from North America to central Mexico."
+    "funFact": "Unlike many other weevils, Sitophilus granarius cannot fly because its hind wings are reduced, yet it remains one of the most destructive stored-grain pests worldwide."
   }
 }
