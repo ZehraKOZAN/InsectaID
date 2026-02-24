@@ -33,12 +33,6 @@ function RootLayoutNav() {
           presentation: "modal",
         }}
       />
-      <Stack.Screen
-        name="insect-detail"
-        options={{
-          headerShown: false,
-        }}
-      />
     </Stack>
   );
 }

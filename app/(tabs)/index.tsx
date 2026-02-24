@@ -394,7 +394,7 @@ export default function HomeScreen() {
             label={t("home.insectTypes")}
             onPress={() => {
               Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-              router.push("/(tabs)/encyclopedia");
+              router.push("/(tabs)/library");
             }}
           />
           <SmallCard

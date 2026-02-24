@@ -15,10 +15,6 @@ function NativeTabLayout() {
         <Icon sf={{ default: "house", selected: "house.fill" }} />
         <Label>Home</Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="encyclopedia">
-        <Icon sf={{ default: "list.bullet", selected: "list.bullet" }} />
-        <Label>Orders</Label>
-      </NativeTabs.Trigger>
       <NativeTabs.Trigger name="library">
         <Icon sf={{ default: "book", selected: "book.fill" }} />
         <Label>Library</Label>
@@ -77,15 +73,6 @@ function ClassicTabLayout() {
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="encyclopedia"
-        options={{
-          title: t("tabs.encyclopedia"),
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="list" size={size} color={color} />
           ),
         }}
       />
